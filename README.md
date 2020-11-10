@@ -16,7 +16,7 @@ After initialization the sending of file is quite straightforward, see an exampl
 
 ```c++
 /**
- * In this example assumed that "filesys" object provides access to a previously opened file
+ * In this example the "filesys" object provides access to a previously opened file
  * and "console" object gives the way to report messages to user's terminal.
  */
  
