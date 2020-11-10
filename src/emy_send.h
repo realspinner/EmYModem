@@ -45,7 +45,7 @@
  */
 
 /**
- * Stages of sender statemachine
+ * Stages of main statemachine
  */
 typedef enum _EmYSendState_t {
     EMYSTAGE_UNKNOWN,
@@ -73,7 +73,7 @@ typedef enum _EmYSendMode_t {
 
 
 /**
- * Block transfer statemachine
+ * Block sender statemachine
  */
 typedef enum _EmYSendBlockState_t {
     EMYSEND_NONE,
