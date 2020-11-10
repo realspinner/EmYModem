@@ -14,7 +14,7 @@ First of all, take a look at _src/interfaces._ The host (i.e. your application) 
 Then you have to create an instance of _EmYSend_ class, and call it's _init()_ method, providing pointers to _iSystem_ and _iSerialIO_ implementations.
 After initialization the sending of file is quite straightforward, see an example, taken from one of my projects:
 
-```
+```c++
 /**
  * In this example assumed that "filesys" object provides access to a previously opened file
  * and "console" object gives the way to report messages to user's terminal.
