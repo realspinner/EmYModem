@@ -12,7 +12,7 @@ For now the sending part of the project is complete and proven to be usable. The
 First of all, take a look at _src/interfaces._ The host (i.e. your application) have to implement _iSystem_ and _iSerialIO_ interfaces to provide timers, synchronization objects and access to serial port.
 
 Then you have to create an instance of _EmYSend_ class, and call it's _init()_ method, providing pointers to _iSystem_ and _iSerialIO_ implementations.
-After initialization the sending of file is quite straightforward:
+After initialization the sending of file is quite straightforward, see an example, taken from one of my projects:
 
 ```
 /**
