@@ -1,5 +1,5 @@
 /*
- * Embedded YMODEM file transfer realization, desined to use in multithreaded
+ * Embedded YMODEM file transfer implementation, desined to use in multithreaded
  * RTOS-based system.
  * Copyright (C) 2020  Oleg Kochetov ok@noiselab.ru
  *
