@@ -19,28 +19,42 @@ After initialization the sending of file is quite straightforward, see an exampl
  * In this example assumed that "filesys" object provides access to a previously opened file
  * and "console" object gives the way to report messages to user's terminal.
  */
+ 
+// Initiate the transmission 
 FileSendStatus_t fsend = emYSend.start(filename, filesys.getFileSize());
 
 size_t sent = 0;
+// If receiver has confirmed the reception of file
 if (fsend == FSS_ACTIVE) {
+  // While the transmission is going on
   while (fsend == FSS_ACTIVE) {
+    // Read bytes from file
     size_t bytes = filesys.readData(dataReadBuffer, EMYMODEM_MAX_XFER_BLOCK_SIZE, sent);
+    
+    // If no more bytes were read, stop.
     if (bytes == 0) {
       break;
     }
+    
+    // Send the read bytes to receiver
     fsend = emYSend.send(dataReadBuffer, bytes);
     sent += bytes;
   }
 }
 
+// Check the result of last send operation
 if (fsend != FSS_ABORTED) {
+  // If the transmission wasn't aborted, try to gracefully finish it.
   fsend = emYSend.finish();
 } else {
+  // Perform abort of transmission
   fsend = emYSend.abort();
 }
 
+// Close the file
 filesys.closeFile();
 
+// Report the results to user
 if (fsend == FSS_ABORTED) {
   console.sendReplyLn("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
   console.sendReplyLn("ERROR: transmission aborted.\r\n");
