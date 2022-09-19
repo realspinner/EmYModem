@@ -24,7 +24,7 @@ After initialization the sending of file is quite straightforward, see an exampl
  * and "console" object gives the way to report messages to user's terminal.
  */
  
-// At this point we already have the filename and the file is opened for reading cuccessfully. 
+// At this point we already have the filename and the file is opened for reading successfully. 
  
 console.sendReplyFmt("\r\nSending file %s size %d bytes.\r\n", filename, filesys.getFileSize());
 console.sendReplyLn("Please start the YMODEM receiver.\r\n"); 
