@@ -11,7 +11,7 @@ For now the sending part of the project is complete and proven to be usable. The
 ### To send a file from embedded device
 First of all, take a look at _src/interfaces._ The host (i.e. your application) have to implement _iSystem_ and _iSerialIO_ interfaces to provide timers, synchronization objects and access to serial port.
 
-The _iSystem_ interface implementation is basically a small pool of mutexes and binary semaphores. EmYSend class needs one mutex and couple of semaphores to interact with incoming bytes. The timer and delay should be obviously a wrappers of corresponding RTOS function.
+The _iSystem_ interface implementation is basically a small pool of mutexes and binary semaphores. EmYSend class needs one mutex and couple of semaphores to interact with incoming bytes. The timer and delay should be obviously wrappers of corresponding RTOS function.
 
 The _iSerialIO_ interface implementation must have separate incoming and outgoing threads, running independently from the main thread. Somewhere in the incoming thread the status of _EmYSend_ instance must be checked with it's _isInputNeeded()_ method. If it is true, the incoming thread must feed the read bytes one by one into _EmYSend's_ _readRemote()_ method.
 
